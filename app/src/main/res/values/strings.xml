@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Simple Memory Helper</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_text_simple">Simple</string>
+    <string name="title_text_memory">Memory</string>
+    <string name="title_text_helper">Helper</string>
+    <string name="button_manage_text">Manage Words</string>
+    <string name="button_practising_text">Start Practising</string>
 </resources>
