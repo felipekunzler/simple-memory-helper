@@ -13,9 +13,22 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ManageWordsActivity"
+            android:label="@string/manage_words_text" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.felipekunzler.simplememoryhelper.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditWordActivity"
+            android:label="@string/edit_word_text" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.felipekunzler.simplememoryhelper.ManageWordsActivity" />
         </activity>
     </application>
 

@@ -4,6 +4,14 @@
     <string name="title_text_simple">Simple</string>
     <string name="title_text_memory">Memory</string>
     <string name="title_text_helper">Helper</string>
-    <string name="button_manage_text">Manage Words</string>
+    <string name="manage_words_text">Manage Words</string>
     <string name="button_practising_text">Start Practising</string>
+    <string name="text_view_word_text">Word</string>
+    <string name="edit_text_word_hint">Word to be remembered</string>
+    <string name="text_view_meaning_text">Meaning</string>
+    <string name="edit_text_meaning_hint">Meaning of the word</string>
+    <string name="button_add_word_text">Add new Word</string>
+    <string name="item_save_text">Save</string>
+    <string name="item_search_text">Search</string>
+    <string name="edit_word_text">Edit Word</string>
 </resources>
