@@ -14,4 +14,16 @@
     <string name="item_save_text">Save</string>
     <string name="item_search_text">Search</string>
     <string name="edit_word_text">Edit Word</string>
+    <string name="toast_word_saved">Word saved</string>
+    <string name="alert_delete_confirmation">Delete confirmation</string>
+    <string name="altert_delete_message">Do you really want to delete this word?</string>
+    <string name="alert_delete_button">DELETE</string>
+    <string name="alert_cancel_button">CANCEL</string>
+    <string name="toast_delete_word">Word deleted</string>
+    <string name="title_new_word">New Word</string>
+    <string name="toast_empty_text">None of the fields can be empty</string>
+    <string name="alert_unsaved_changes">You have unsaved changes</string>
+    <string name="alert_discard_message">Do you really want to discard your changes?</string>
+    <string name="alert_discard_button">DISCARD</string>
+    <string name="toast_changes_discarded">Changes discarded</string>
 </resources>

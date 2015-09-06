@@ -13,12 +13,13 @@
         <ListView
             android:id="@+id/listview_words"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:divider="@color/transparent"
             android:dividerHeight="10dp"
             android:drawSelectorOnTop="true"
             android:footerDividersEnabled="false"
             android:padding="10dp"
+            android:layout_gravity="top"
             android:scrollbarStyle="outsideOverlay" >
         </ListView>
     </LinearLayout>
@@ -32,5 +33,6 @@
         android:id="@+id/buttonAddWord"
         style="@style/CustomButton"
         android:text="@string/button_add_word_text"
+        android:onClick="addNewOnClick"
         android:layout_margin="10dp"/>
 </LinearLayout>

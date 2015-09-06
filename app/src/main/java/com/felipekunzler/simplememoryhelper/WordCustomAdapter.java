@@ -29,19 +29,19 @@ public class WordCustomAdapter extends BaseAdapter
     @Override
     public Object getItem(int position)
     {
-        return position;
+        return this.data.get(position);
     }
 
     @Override
     public long getItemId(int position)
     {
-        return position;
+        return this.data.get(position).getId();
     }
 
     @Override
     public int getCount()
     {
-        return data.size();
+        return this.data.size();
     }
 
     @Override
@@ -63,5 +63,11 @@ public class WordCustomAdapter extends BaseAdapter
         textViewMeaning.setText(word.getMeaning());
 
         return view;
+    }
+
+    public void remove(int index){
+
+        this.data.remove(index);
+        this.notifyDataSetChanged();
     }
 }

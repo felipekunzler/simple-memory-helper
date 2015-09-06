@@ -1,9 +1,11 @@
 package com.felipekunzler.simplememoryhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class ManageWordsActivity extends AppCompatActivity {
 
@@ -32,5 +34,20 @@ public class ManageWordsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Add new word.
+     * @param view The view which trigged the event.
+     */
+    public void addNewOnClick(View view) {
+        Intent intent = new Intent(this, EditWordActivity.class);
+        startActivity(intent);
     }
 }
