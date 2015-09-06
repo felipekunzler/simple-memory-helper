@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class WordCustomAdapter extends BaseAdapter
 {
@@ -56,13 +59,21 @@ public class WordCustomAdapter extends BaseAdapter
 
         TextView textViewWord = (TextView) view.findViewById(R.id.list_item_word_textview);
         TextView textViewMeaning = (TextView) view.findViewById(R.id.list_item_meaning_textview);
+        TextView textViewDate = (TextView) view.findViewById(R.id.list_item_date_textview);
 
         Word word = data.get(position);
 
         textViewWord.setText(word.getWord());
         textViewMeaning.setText(word.getMeaning());
+        textViewDate.setText(activity.getString(R.string.text_view_last_seen) + convertTime(word.getLastTimeNotificationSent()));
 
         return view;
+    }
+
+    public String convertTime(long time){
+        Date date = new Date(time);
+        Format format = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+        return format.format(date);
     }
 
     public void remove(int index){

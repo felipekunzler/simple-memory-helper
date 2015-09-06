@@ -30,6 +30,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.felipekunzler.simplememoryhelper.ManageWordsActivity" />
         </activity>
+
+        <receiver android:name=".NotificationPublisher" />
     </application>
 
 </manifest>

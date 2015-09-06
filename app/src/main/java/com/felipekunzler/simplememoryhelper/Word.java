@@ -5,15 +5,17 @@ public class Word {
     private int id;
     private String word;
     private String meaning;
+    private long lastTimeNotificationSent;
 
     public Word(){
 
     }
 
-    public Word(int id, String word, String meaning){
+    public Word(int id, String word, String meaning, long lastTimeNotificationSent){
         this.id = id;
         this.word = word;
         this.meaning = meaning;
+        this.lastTimeNotificationSent = lastTimeNotificationSent;
     }
 
     public Word(String word, String meaning){
@@ -43,5 +45,13 @@ public class Word {
 
     public void setMeaning(String meaning) {
         this.meaning = meaning;
+    }
+
+    public long getLastTimeNotificationSent() {
+        return this.lastTimeNotificationSent;
+    }
+
+    public void setLastTimeNotificationSent(long lastTimeNotificationSent) {
+        this.lastTimeNotificationSent = lastTimeNotificationSent;
     }
 }

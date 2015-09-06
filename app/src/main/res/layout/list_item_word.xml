@@ -25,6 +25,14 @@
             android:layout_below="@+id/list_item_word_textview"
             android:padding="6dp" />
 
+        <TextView
+            android:id="@+id/list_item_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/list_item_meaning_textview"
+            android:padding="6dp" />
+
     </RelativeLayout>
 
     <View

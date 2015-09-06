@@ -64,6 +64,7 @@ public class EditWordActivity extends AppCompatActivity {
                 mWord.setMeaning(wordMeaning);
 
                 if (mWord.getId() == -1) {
+                    mWord.setLastTimeNotificationSent(System.currentTimeMillis());
                     db.addWord(mWord);
                 } else {
                     db.updateWord(mWord);
