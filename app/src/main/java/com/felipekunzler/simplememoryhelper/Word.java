@@ -2,6 +2,9 @@ package com.felipekunzler.simplememoryhelper;
 
 public class Word {
 
+    public final static String WORD_ID = "WORD_ID";
+    public final static String WORD_ID_NOTIFICATION = "wordIdNotification";
+
     private int id;
     private String word;
     private String meaning;

@@ -1,9 +1,13 @@
 package com.felipekunzler.simplememoryhelper;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +20,7 @@ public class EditWordActivity extends AppCompatActivity {
     private Word mWord;
     private EditText mEditTextWord;
     private EditText mEditTextMeaning;
+    private boolean isOpenThroughNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +32,21 @@ public class EditWordActivity extends AppCompatActivity {
         mEditTextMeaning = (EditText) findViewById(R.id.editTextMeaning);
 
         mWord = new Word();
-        mWord.setId((int) getIntent().getLongExtra("WORD_ID", -1));
+        mWord.setId((int) getIntent().getLongExtra(Word.WORD_ID, -1));
         mWord.setWord("");
         mWord.setMeaning("");
 
-        // When id is -1 a word is getting edited.
+        // If the activity was open through a notification, show its word
+        String wordIdStr = getIntent().getStringExtra(Word.WORD_ID_NOTIFICATION);
+        int wordIdNotification = wordIdStr == null ? -1 : Integer.parseInt(wordIdStr);
+        if(wordIdNotification != -1){
+            this.isOpenThroughNotification = true;
+            mWord.setId(wordIdNotification);
+            setTitle(R.string.app_name);
+            mEditTextWord.setEnabled(false);
+            mEditTextMeaning.setEnabled(false);
+        }
+
         if (mWord.getId() != -1) {
             DatabaseHandler db = new DatabaseHandler(this);
             mWord = db.getWord(mWord.getId());
@@ -74,6 +89,8 @@ public class EditWordActivity extends AppCompatActivity {
 
                 db.close();
 
+                scheduleNotification();
+
                 Intent intent = new Intent(this, ManageWordsActivity.class);
                 startActivity(intent);
             }
@@ -94,8 +111,10 @@ public class EditWordActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_edit_word, menu);
+        if (!isOpenThroughNotification) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_edit_word, menu);
+        }
 
         return true;
     }
@@ -106,6 +125,20 @@ public class EditWordActivity extends AppCompatActivity {
         if (alertDiscardChanges()){
             super.onBackPressed();
         };
+    }
+
+    public void scheduleNotification() {
+
+        long interval = 60 * 1000;
+
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+
+        PendingIntent sender = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long nextTrigger = SystemClock.elapsedRealtime() + 10 * 000;
+
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, nextTrigger, interval, sender);
     }
 
     private boolean alertDiscardChanges(){

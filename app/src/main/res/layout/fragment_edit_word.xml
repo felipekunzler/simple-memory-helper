@@ -28,7 +28,8 @@
             android:layout_alignParentStart="true"
             android:hint="@string/edit_text_word_hint"
             android:maxLines="1"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:textColor="@drawable/edit_text"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,7 +50,8 @@
             android:scrollbars="vertical"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:hint="@string/edit_text_meaning_hint" />
+            android:hint="@string/edit_text_meaning_hint"
+            android:textColor="@drawable/edit_text"/>
 
     </LinearLayout>
 </LinearLayout>

@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
-        android:gravity="center">
+        android:layout_weight="5"
+        android:gravity="bottom|center">
 
         <LinearLayout
             android:layout_width="230dp"
@@ -36,14 +36,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="5"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_margin="15dp">
+            android:layout_margin="35dp">
 
             <Button
                 android:onClick="manageWordsOnClick"
@@ -51,10 +52,15 @@
                 android:layout_marginBottom="35dp"
                 style="@style/CustomButton"/>
 
-            <Button
-                android:text="@string/button_practising_text"
-                style="@style/CustomButton"/>
+            <TextView
+                android:textSize="25dp"
+                style="@style/CustomTitleTextView"
+                android:text="Next notification" />
 
+            <TextView
+                android:id="@+id/textViewCountdown"
+                style="@style/CustomTitleTextView"
+                android:text="00:00:00" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

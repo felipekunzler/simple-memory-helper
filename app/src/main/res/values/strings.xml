@@ -26,5 +26,5 @@
     <string name="alert_discard_message">Do you really want to discard your changes?</string>
     <string name="alert_discard_button">DISCARD</string>
     <string name="toast_changes_discarded">Changes discarded</string>
-    <string name="text_view_last_seen">"Last seen: "</string>
+    <string name="text_view_last_seen">"Last notification sent: "</string>
 </resources>

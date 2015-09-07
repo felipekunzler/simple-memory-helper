@@ -48,7 +48,7 @@ public class ManageWordsFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 Intent intent = new Intent(getActivity(), EditWordActivity.class);
-                intent.putExtra("WORD_ID", mWordsAdapter.getItemId(position));
+                intent.putExtra(Word.WORD_ID, mWordsAdapter.getItemId(position));
                 startActivity(intent);
             }
         });
